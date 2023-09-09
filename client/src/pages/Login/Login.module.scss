@@ -1,0 +1,27 @@
+$mobile-width: 550px;
+$tablet-width: 900px;
+$desktop-width: 1024px;
+
+$laptop13-width: 1024px;
+$laptop15-width: 1524px;
+
+.login{
+    width: 100%;
+    min-height: 100%;
+    display: flex;
+    background: #f8fafb;
+    padding: 0 400px;
+    @media screen and (max-width: $laptop15-width) {
+        padding: 0 150px;
+      }
+    
+      .login_row{
+        @media screen and (max-width: $tablet-width) {
+          height: 100% !important;
+        }
+      }
+    
+      @media screen and (max-width: $tablet-width) {
+        padding: 20px;
+      }
+}
