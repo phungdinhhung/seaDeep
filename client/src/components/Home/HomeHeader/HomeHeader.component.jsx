@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import React, {useState, useEffect} from "react";
+=======
+import React from "react";
+>>>>>>> eab3d8bf659b5bfcdf5ca7ae2e281cd113bc485d
 import styles from "./HomeHeader.module.scss"
 import { Box } from "@mui/material"
 
@@ -19,6 +23,7 @@ const HomeHeader = () => {
     },[])
     return (
         <Box className={styles["header"]} sx={{flexGrow: 1}}>
+<<<<<<< HEAD
             <div className={styles["header_video"]}
             style={{width: "100%",
                 height: "900px",
@@ -30,6 +35,9 @@ const HomeHeader = () => {
                 position: "relative",
             }}
             >
+=======
+            <div className={styles["header_video"]}>
+>>>>>>> eab3d8bf659b5bfcdf5ca7ae2e281cd113bc485d
             <video
             src="https://video.wixstatic.com/video/11062b_ea61c0ecc8b34ecd942c42470507e640/720p/mp4/file.mp4" 
             autoPlay 
@@ -37,6 +45,7 @@ const HomeHeader = () => {
             muted
             />
             </div>
+<<<<<<< HEAD
             <div className={styles["header_slogan"]}>
                 <div className={styles["slogan_box"]}>
                     <p>SeaDeep</p>
@@ -45,6 +54,9 @@ const HomeHeader = () => {
             </div>
         </Box>
 
+=======
+        </Box>
+>>>>>>> eab3d8bf659b5bfcdf5ca7ae2e281cd113bc485d
     )
 }
 

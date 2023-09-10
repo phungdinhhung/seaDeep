@@ -1,4 +1,5 @@
 
+<<<<<<< HEAD
 .header {
     width: 100%;
     height: 91%;
@@ -37,5 +38,25 @@
             font-size: 20px;
             font-family: "oswald-extralight", "oswald",sans-serif;
         }
+=======
+
+.header {
+    width: 100%;
+    height: 100%;
+    .header_video{
+        width: 100%;
+        height: 100%;
+        left: 0px;
+        top: 0px;
+    }
+    video {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        object-position: center center; 
+        opacity: 1;
+        will-change: transform;
+        transform: translate3d(0px, 0px, 0px);
+>>>>>>> eab3d8bf659b5bfcdf5ca7ae2e281cd113bc485d
     }
 }
