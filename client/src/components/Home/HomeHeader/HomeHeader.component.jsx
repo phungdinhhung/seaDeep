@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from "react";
-import React from "react";
 import styles from "./HomeHeader.module.scss"
 import { Box } from "@mui/material"
 
