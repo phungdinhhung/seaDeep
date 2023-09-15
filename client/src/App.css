@@ -6,6 +6,11 @@
   --primary-color: #5CC4D4;
   --black-color: #000;
   --white-color: #fff;
+  --epip-color: #80BAE5;
+  --meso-color: #2689C9;
+  --bathy-color: #045DA4;
+  --abyss-color: #09376E;
+  --hadal-color: #130853
 }
 
 * {

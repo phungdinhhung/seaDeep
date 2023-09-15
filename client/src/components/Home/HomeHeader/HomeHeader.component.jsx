@@ -9,7 +9,9 @@ const HomeHeader = () => {
     useEffect(() => {
         const handleScroll = () => {
             let scroll = (window.scrollY / 2) - 100;
-            setMoveY(scroll)
+            if(scroll < 350){
+                setMoveY(scroll)
+            }
         }
         window.addEventListener("scroll", handleScroll)
         return () => {
