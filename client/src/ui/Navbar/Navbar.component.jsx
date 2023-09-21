@@ -3,9 +3,18 @@ import styles from "./Navbar.module.scss"
 import { Box, AppBar,Toolbar, Button } from "@mui/material"
 import logo from "../../config/images/seadeep-icon.png"
 import { NavLink, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 
 const Navbar = () => {
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+    const isLogedIn = useSelector((state) => state.isLogedIn);
 
+    const logout = () => {
+        localStorage.clear();
+        dispatch({ type: "CLEAR_SESSION" });
+        navigate("/home");
+    };
     return(
         <Box className={styles["navbar"]} sx={{ flexGrow: 1 }}>
             <AppBar position="static">
@@ -40,6 +49,25 @@ const Navbar = () => {
                             </NavLink>
                         </Box>
                     </Box>
+                    {isLogedIn ? (
+                    <Box sx={{ display: { xs: "none", md: "flex" } }}>
+                                <div className="d-flex align-items-center">
+                                    <Button className={styles["button_log"]}>
+                                    <NavLink
+                                    className="d-flex m-auto light-text"
+                                    style={{ textDecoration: "none" }}
+                                    to="/home"
+                                    onClick={() => {
+                                        logout();
+                                    }}
+                                >
+                                    
+                                    <h4>Log Out</h4>
+                                </NavLink>
+                                    </Button>
+                                </div>
+                            </Box>
+                    ): 
                     <Box sx={{ display: { xs: "none", md: "flex" } }}>
                                 <div className="d-flex align-items-center">
                                     <Button className={styles["button_log"]}>
@@ -53,8 +81,9 @@ const Navbar = () => {
                                     </Button>
                                 </div>
                             </Box>
-                            </Toolbar>
-            </AppBar>
+                            }
+                        </Toolbar>
+                    </AppBar>
         </Box>
     )
 }

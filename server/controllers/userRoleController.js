@@ -3,7 +3,6 @@ const userRoleService = require("../services/userRoleService");
 class userRoleController {
    addUserRole = async (req, res) => {
       const user_role = req.body;
-      console.log(user_role);
       await userRoleService
          .addUserRole(user_role)
          .then((data) => {

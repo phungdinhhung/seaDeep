@@ -6,6 +6,17 @@ const roleService = require("../services/roleService");
 const userRoleService = require("../services/userRoleService");
 
 class userService {
+   getUser = async(data) => {
+      let info =  await database.User.findOne({
+          where: {
+            userId: data
+         },
+      raw:true
+   })
+   return {
+      info: info
+   }
+   }
    register = async (data) => {
       const hashedPassword = await bcrypt.hash(data.password, 10);
       let userId;
@@ -17,7 +28,10 @@ class userService {
       }
       await database.User.create({
          email: data.email,
-         fullName: data.fullName,
+         firstName: data.firstName,
+         lastName: data.lastName,
+         phone: data.phone,
+         dateOfBirth: data.dateOfBirth,
          password: hashedPassword,
       }).then((data) => {
          userId = data.userId;
@@ -41,7 +55,7 @@ class userService {
       return check ? userRole[0] : "EMAIL DUPPLICATE";
    };
    login = async (data) => {
-      await database.User.findOne({
+      return await database.User.findOne({
          where: { email: data.email },
       }).then(async (user) => {
          if (!user) {
@@ -63,7 +77,7 @@ class userService {
          const roles = await database.UserRole.findAll({
             where: { userId: user.userId },
          });
-         const roleUser = await Promise.all(
+         const userRole = await Promise.all(
             roles.map(async (element) => {
                return await database.Role.findOne({
                   where: { roleId: element.roleId },
@@ -72,7 +86,7 @@ class userService {
                });
             })
          );
-         return { ...user.toJSON(), token, roleUser };
+         return { ...user.toJSON(), token, userRole };
       });
    };
 }

@@ -13,9 +13,12 @@ const User = sequelize.define("user", {
       type: DataTypes.STRING(30),
       unique: true,
    },
-   fullName: {
+   firstName: {
       type: DataTypes.STRING(20),
    },
+   lastName: {type:DataTypes.STRING(15)},
+   dateOfBirth: DataTypes.DATE,
+   phone: DataTypes.STRING(11),
    password: {
       type: DataTypes.STRING,
    },
