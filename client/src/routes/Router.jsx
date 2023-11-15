@@ -8,6 +8,7 @@ import {
 import Home from '../pages/Home/Home.page';
 import Login from '../pages/Login/Login.page';
 import Register from '../pages/Register/Register.page';
+import Dashboard from '../pages/Dashboard/Dashboard.page'
 
 function AppRouter() {
    return (
@@ -16,6 +17,11 @@ function AppRouter() {
          <Route path="/register" element={<Register />}></Route>
          <Route path="/home" element={<Home />}></Route>
          <Route path="/" element={<Navigate to="/home" />}></Route>
+         <Route
+                path="/dashboard/"
+                element={<Navigate to="/dashboard/introduction" replace />}
+            ></Route>
+         <Route path="/dashboard/*" element={< Dashboard/>}></Route>
       </Routes>
    );
 }

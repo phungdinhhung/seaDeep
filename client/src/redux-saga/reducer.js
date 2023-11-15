@@ -2,20 +2,7 @@ const defaultState = {
     user: {
         roleUser: [],
     },
-    isLogedIn: true,
-    isTopicFormSubmitted: false,
-    theme: 0,
-
-    // student dashboard
-    currentDeletedItem: { topicId: "sdf" },
-
-    //Group form storage
-    group: {
-        groupName: "",
-        isScientificGroup: false,
-        groupDesc: "",
-        students: [],
-    },
+    isLogedIn: false,
 };
 
 export const reducer = function (state = defaultState, action) {
@@ -32,12 +19,6 @@ export const reducer = function (state = defaultState, action) {
             state.user = {
                 roleUser: [],
             };
-            return { ...state };
-        case "ACTIVE_STATUS_TOPIC_FORM":
-            state.isTopicFormSubmitted = !state.isTopicFormSubmitted;
-            return { ...state };
-        case "RESET_STATUS_TOPIC_FORM":
-            state.isTopicFormSubmitted = false;
             return { ...state };
         // case "UPDATE_CURRENT_DELETED_ITEM":
         //     state.currentDeletedItem = action.payload;

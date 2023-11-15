@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from "./HomeCards.module.scss";
-import ReactPlayer from "react-player";
+// import ReactPlayer from "react-player";
 
 const HomeCards = () => {
     
@@ -13,7 +13,7 @@ const HomeCards = () => {
                 </span>
 
             </div>
-            <div className={styles["card_right"]}>
+            {/* <div className={styles["card_right"]}>
                 <ReactPlayer
                 className={styles["video_intro"]}
                 url="https://www.youtube.com/watch?v=OTXLp81ptCk"
@@ -23,7 +23,7 @@ const HomeCards = () => {
                 width="578px"
                 height="322px"
                 />
-            </div>
+            </div> */}
         </div>
     </div>
     )

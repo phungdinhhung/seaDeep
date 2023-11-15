@@ -11,7 +11,7 @@ import ValidatedIconTextbox from "../../ui/Form/ValidatedIconTextbox/ValidatedIc
 import { axios } from "../../services/HttpClient/HttpClient";
 import styles from "./Login.module.scss";
 import BasicAlert from "../../ui/Alert/BasicAlert/BasicAlert.component";
-import Customer from "../../services/Supporter/User/Customer";
+// import Customer from "../../services/Supporter/User/Customer";
 import CircularProgress from '@mui/material/CircularProgress';
 // import Lecturer from "../../services/Supporter/Lecturer/Lecturer";
 
@@ -53,26 +53,6 @@ function Login() {
                         console.log(data)
                         localStorage.setItem("user", JSON.stringify(data));
                         localStorage.setItem("isAuthenticated", true);
-
-                        if (data.userRole.includes("customer")) {
-                            let customerInfo = await Customer.getById(
-                                data.userId
-                            );
-                            localStorage.setItem(
-                                "info",
-                                JSON.stringify(customerInfo.data.info)
-                            );
-                        } 
-                        else {
-                            let managerInfo = await Customer.getById(
-                                data.userId
-                            );
-                            localStorage.setItem(
-                                "info",
-                                JSON.stringify(managerInfo.data.info)
-                            );
-                        }
-
                         dispatch({ type: "UPDATE_SESSION", payload: data });
                         navigate("/home");
                     }

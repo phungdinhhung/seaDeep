@@ -9,8 +9,14 @@ const Navbar = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const isLogedIn = useSelector((state) => state.isLogedIn);
-
-    const logout = () => {
+    const userRole = useSelector((state) => state.user.userRole)
+    const isAuthor = 'customer';
+    if(isLogedIn){
+        const isAuthor = userRole[0]
+        console.log("isAuthor:" + isAuthor)
+        console.log("isAuthor:" + typeof isAuthor)
+    }
+        const logout = () => {
         localStorage.clear();
         dispatch({ type: "CLEAR_SESSION" });
         navigate("/home");
@@ -40,13 +46,24 @@ const Navbar = () => {
                             >
                                 About
                             </NavLink>
-                            <NavLink
+                            {isAuthor === "customer" ? (
+                                <NavLink
                                 className="d-flex m-auto light-text"
                                 style={{ padding: "12px",color: "#fff",textDecoration: "none" }}
                                 to="/dashboard"
                             >
                                 Dashboard
                             </NavLink>
+                            ) : 
+                            <NavLink
+                                className="d-flex m-auto light-text"
+                                style={{ padding: "12px",color: "#fff",textDecoration: "none" }}
+                                to="/profile"
+                            >
+                                Profile
+                            </NavLink>
+                            }
+                            
                         </Box>
                     </Box>
                     {isLogedIn ? (
